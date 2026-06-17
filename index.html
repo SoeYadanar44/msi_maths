@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MSI Academy · Math Quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <div class="page">
+        <!-- BRAND HEADER -->
+        <header class="msi-brand">
+            <img src="img/logo.png" alt="MSI Academy logo" onerror="this.style.display='none'" />
+            <div>
+                <div class="wordmark">
+                    <span class="msi">MSI</span><span class="academy">Academy</span>
+                </div>
+                <div class="tagline">Learn · Practice · Excel</div>
+            </div>
+        </header>
+
+        <div class="container" id="app">
+            <!-- START SCREEN -->
+            <div id="startScreen">
+                <div class="start-hero">
+                    <div class="kicker">Math Challenge</div>
+                    <h1>Three levels.<br><span class="accent">One brilliant mind.</span></h1>
+                    <p>Test your skills across Algebra, Statistics &amp; Probability, and Advanced Math — 2 questions per level, 3 minutes each.</p>
+                    <button class="btn btn-primary btn-lg" id="startBtn">Start Quiz</button>
+                    <div class="start-pills">
+                        <span class="start-pill">Algebra</span>
+                        <span class="start-pill">Statistics &amp; Probability</span>
+                        <span class="start-pill">Advanced Math</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUIZ SCREEN -->
+            <div id="quizScreen" class="hidden">
+                <div class="quiz-header">
+                    <div class="level-badge" id="levelBadge">
+                        Level <span id="levelNum">1</span> · Algebra
+                    </div>
+                    <div class="timer-box" id="timerBox">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M9 2h6"/></svg>
+                        <span id="timerDisplay">3:00</span>
+                    </div>
+                </div>
+                <div class="progress-dots" id="progressDots">
+                    <div class="dot active" data-lvl="1"></div>
+                    <div class="dot-line" data-lvl="1-2"></div>
+                    <div class="dot" data-lvl="2"></div>
+                    <div class="dot-line" data-lvl="2-3"></div>
+                    <div class="dot" data-lvl="3"></div>
+                </div>
+                <div id="questionsContainer"></div>
+                <div class="btn-group">
+                    <button class="btn btn-primary" id="submitBtn">Submit Answers</button>
+                </div>
+                <div id="statusMsg" class="status-msg"></div>
+            </div>
+
+            <!-- COMPLETION SCREEN -->
+            <div id="completeScreen" class="hidden complete-screen">
+                <div class="complete-mascot">
+                    <img src="img/fighting.png" alt="MSI mascot celebrating" onerror="this.style.display='none'" />
+                </div>
+                <h2>Amazing work</h2>
+                <p>You conquered all three levels. Keep up the great math skills.</p>
+                <div class="summary">
+                    <div class="stat"><strong>3</strong> Levels completed</div>
+                    <div class="stat"><strong>100%</strong> All correct</div>
+                </div>
+                <button class="btn btn-navy" id="retryCompleteBtn">Play Again</button>
+            </div>
+
+            <!-- SUGGESTION MODAL -->
+            <div class="modal-overlay" id="suggestionModal">
+                <div class="modal-box">
+                    <div class="modal-mascot">
+                        <img src="img/fighting.png" alt="MSI mascot" onerror="this.style.display='none'" />
+                    </div>
+                    <h3 id="modalTitle">Keep Practicing</h3>
+                    <div class="modal-level-label" id="modalLevelLabel">Level 1 · Algebra</div>
+                    <div class="modal-suggestion" id="modalSuggestion">
+                        Further practice in algebra is strongly recommended.
+                    </div>
+                    <button class="btn btn-primary" id="modalEndBtn">End Quiz</button>
+                </div>
+            </div>
+        </div>
+
+        <footer class="msi-foot">
+            Powered by <span>MSI Academy</span> · <span id="year"></span>
+        </footer>
+    </div>
+
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    <script src="js/script.js"></script>
+</body>
+</html>
