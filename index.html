@@ -10,9 +10,26 @@
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+    <!-- ANIMATED BACKGROUND -->
+    <div class="bg-anim" aria-hidden="true">
+        <div class="bg-blob bg-blob-1"></div>
+        <div class="bg-blob bg-blob-2"></div>
+        <div class="bg-blob bg-blob-3"></div>
+        <div class="floating-symbols">
+            <span style="--x:8%;  --d:0s;   --dur:18s; --r:-12deg;">∑</span>
+            <span style="--x:18%; --d:3s;   --dur:22s; --r:8deg;">π</span>
+            <span style="--x:32%; --d:6s;   --dur:20s; --r:-6deg;">√</span>
+            <span style="--x:46%; --d:1.5s; --dur:24s; --r:14deg;">∞</span>
+            <span style="--x:60%; --d:4s;   --dur:19s; --r:-10deg;">∫</span>
+            <span style="--x:72%; --d:7s;   --dur:23s; --r:6deg;">θ</span>
+            <span style="--x:84%; --d:2s;   --dur:21s; --r:-4deg;">Δ</span>
+            <span style="--x:92%; --d:5s;   --dur:25s; --r:10deg;">+</span>
+        </div>
+    </div>
+
     <div class="page">
         <!-- BRAND HEADER -->
-        <header class="msi-brand">
+        <header class="msi-brand anim-fade-down">
             <img src="img/logo.png" alt="MSI Academy logo" onerror="this.style.display='none'" />
             <div>
                 <div class="wordmark">
@@ -22,15 +39,15 @@
             </div>
         </header>
 
-        <div class="container" id="app">
+        <div class="container anim-fade-up" id="app">
             <!-- START SCREEN -->
             <div id="startScreen">
                 <div class="start-hero">
-                    <div class="kicker">Math Challenge</div>
-                    <h1>Measure Your Math Power<br><span class="accent">Think - Solve - Improve</span></h1>
-                    <p>Test your skills across Algebra, Statistics &amp; Probability, and Advanced Math — 2 questions per level, 3 minutes each.</p>
-                    <button class="btn btn-primary btn-lg" id="startBtn">Start Quiz</button>
-                    <div class="start-pills">
+                    <div class="kicker anim-pop" style="--delay:.05s">Math Challenge</div>
+                    <h1 class="anim-pop" style="--delay:.15s">Measure Your Math Power<br><span class="accent">Think - Solve - Improve</span></h1>
+                    <p class="anim-pop" style="--delay:.3s">Test your skills across Algebra, Statistics &amp; Probability, and Advanced Math — 2 questions per level, 3 minutes each.</p>
+                    <button class="btn btn-primary btn-lg btn-shine anim-pop" style="--delay:.45s" id="startBtn">Start Quiz</button>
+                    <div class="start-pills anim-pop" style="--delay:.6s">
                         <span class="start-pill">Algebra</span>
                         <span class="start-pill">Statistics &amp; Probability</span>
                         <span class="start-pill">Advanced Math</span>
@@ -58,13 +75,14 @@
                 </div>
                 <div id="questionsContainer"></div>
                 <div class="btn-group">
-                    <button class="btn btn-primary" id="submitBtn">Submit Answers</button>
+                    <button class="btn btn-primary btn-shine" id="submitBtn">Submit Answers</button>
                 </div>
                 <div id="statusMsg" class="status-msg"></div>
             </div>
 
             <!-- COMPLETION SCREEN -->
             <div id="completeScreen" class="hidden complete-screen">
+                <canvas id="confettiCanvas" class="confetti-canvas" aria-hidden="true"></canvas>
                 <div class="complete-mascot">
                     <img src="img/fighting.png" alt="MSI mascot celebrating" onerror="this.style.display='none'" />
                 </div>
@@ -74,7 +92,7 @@
                     <div class="stat"><strong>3</strong> Levels completed</div>
                     <div class="stat"><strong>100%</strong> All correct</div>
                 </div>
-                <button class="btn btn-navy" id="retryCompleteBtn">Play Again</button>
+                <button class="btn btn-navy btn-shine" id="retryCompleteBtn">Play Again</button>
             </div>
 
             <!-- SUGGESTION MODAL -->
@@ -88,7 +106,7 @@
                     <div class="modal-suggestion" id="modalSuggestion">
                         Further practice in algebra is strongly recommended.
                     </div>
-                    <button class="btn btn-primary" id="modalEndBtn">End Quiz</button>
+                    <button class="btn btn-primary btn-shine" id="modalEndBtn">End Quiz</button>
                 </div>
             </div>
         </div>
