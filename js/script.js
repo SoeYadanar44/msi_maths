@@ -184,7 +184,7 @@ function renderLevel() {
     const qs = state.selectedQuestions;
 
     // header
-    levelBadge.innerHTML = `<span>${level.icon}</span> Level ${level.id} · ${level.name}`;
+    // header
     levelNum.textContent = level.id;
 
     // timer
